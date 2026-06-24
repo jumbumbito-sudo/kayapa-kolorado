@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carta digital interactiva y elegante de La Maravilla - Restaurante & Grill en Macas. Explora nuestro menú con deliciosos platos amazónicos, carnes al grill, mariscos y brebajes de la selva.">
+    <title>La Maravilla | Carta Digital</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Estilos de la Carta Digital -->
+    <link rel="stylesheet" href="styles-menu.css">
+</head>
+<body class="menu-standalone-body">
+    
+    <!-- Fondo decorativo con luces y sombras tropicales -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Contenedor Principal (3 Columnas en Desktop) -->
+    <div class="app-container">
+        
+        <!-- Sidebar Izquierdo: Información y Redes (Visible en Desktop) -->
+        <aside class="sidebar-info">
+            <div class="restaurant-brand">
+                <span class="since">DESDE 2017</span>
+                <h1>La Maravilla</h1>
+                <p class="tagline">Restaurante & Grill</p>
+                <div class="location">
+                    <i data-lucide="map-pin"></i>
+                    <span>Macas, Ecuador</span>
+                </div>
+            </div>
+            
+            <nav class="desktop-nav">
+                <h3>Navegación</h3>
+                <ul>
+                    <li>
+                        <a href="index.html" class="nav-item-btn">
+                            <i data-lucide="arrow-left-circle"></i>
+                            <span>Volver al Inicio</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <h3 style="margin-top: 2rem;">Categorías</h3>
+                <ul id="desktop-categories-list">
+                    <!-- Dinámico -->
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Síguenos en redes sociales:</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/LaMaravilla2017?locale=es_LA" target="_blank" aria-label="Facebook">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/la_maravilla_macas?fbclid=IwY2xjawSpJYBleHRuA2FlbQIxMABicmlkETE4SzJBelBaSWtoYnRXam9Yc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHt8lKEFdQWXdF8AFXF5bv84NP-2_dwSi6cA_aRZyFhPzwcTFdVCH0tehhPDI_aem_ZNS3OHC5sz79cx8NuHkOXQ" target="_blank" aria-label="Instagram">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                </div>
+                <p class="copyright">&copy; 2026 La Maravilla. Todos los derechos reservados.</p>
+            </div>
+        </aside>
+
+        <!-- Contenido Central: Buscador, Categorías y Platos -->
+        <main class="main-content">
+            
+            <!-- Encabezado Móvil -->
+            <header class="mobile-header">
+                <div class="mobile-logo-row">
+                    <a href="index.html" class="btn-back-mobile" aria-label="Volver a la web principal">
+                        <i data-lucide="arrow-left"></i>
+                    </a>
+                    <div class="mobile-logo">
+                        <span class="since">DESDE 2017</span>
+                        <h2>La Maravilla</h2>
+                        <p>Restaurante & Grill</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Barra de Búsqueda -->
+            <div class="search-section">
+                <div class="search-box">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Buscar plato, ingrediente..." autocomplete="off">
+                    <button id="clear-search" class="clear-search" aria-label="Limpiar búsqueda">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navegación de Categorías (Móvil / Slider Horizontal) -->
+            <div class="mobile-nav-wrapper">
+                <div class="mobile-nav" id="mobile-categories-tabs">
+                    <!-- Dinámico -->
+                </div>
+            </div>
+
+            <!-- Sección Activa de Platos -->
+            <section class="menu-section">
+                <div class="menu-section-header">
+                    <h2 class="section-title" id="active-category-title">Cargando menú...</h2>
+                    <p class="section-description" id="active-category-desc"></p>
+                </div>
+                
+                <div class="menu-grid" id="menu-grid">
+                    <!-- Dinámico -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar Derecho: Calculadora de Cuenta / Mi Pedido -->
+        <aside class="sidebar-cart" id="sidebar-cart">
+            <div class="cart-header">
+                <div class="cart-title-wrapper">
+                    <i data-lucide="shopping-bag" class="gold-icon"></i>
+                    <h2>Mi Pedido</h2>
+                </div>
+                <button class="close-cart-btn" id="close-cart-btn" aria-label="Cerrar pedido">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="cart-body">
+                <!-- Estado Vacío -->
+                <div class="cart-empty" id="cart-empty">
+                    <i data-lucide="utensils" class="empty-icon"></i>
+                    <p>Tu pedido está vacío</p>
+                    <span>Selecciona platos del menú para sumarlos a tu cuenta y calcular el total.</span>
+                </div>
+
+                <!-- Lista de items seleccionados -->
+                <div class="cart-items" id="cart-items" style="display: none;">
+                    <!-- Dinámico -->
+                </div>
+            </div>
+
+            <div class="cart-footer" id="cart-footer" style="display: none;">
+                <div class="cart-totals">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span id="cart-subtotal">$0.00</span>
+                    </div>
+                    <div class="total-row total-highlight">
+                        <span>Total Estimado</span>
+                        <span id="cart-total">$0.00</span>
+                    </div>
+                </div>
+                
+                <div class="order-info-inputs">
+                    <div class="input-group">
+                        <label for="order-type">¿Cómo ordenarás?</label>
+                        <select id="order-type">
+                            <option value="mesa">Mesa del Restaurante</option>
+                            <option value="llevar">Para Llevar / Retiro</option>
+                            <option value="domicilio">Servicio a Domicilio</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="table-number-group">
+                        <label for="table-number">Número de Mesa</label>
+                        <input type="number" id="table-number" min="1" placeholder="Ej: 5">
+                    </div>
+                    <div class="input-group" id="delivery-address-group" style="display: none;">
+                        <label for="delivery-address">Dirección y Nombre</label>
+                        <input type="text" id="delivery-address" placeholder="Ej: Av. 24 de Mayo y 10 de Agosto, Juan Perez">
+                    </div>
+                </div>
+
+                <button class="btn-whatsapp-order" id="send-whatsapp-btn">
+                    <i data-lucide="send"></i>
+                    <span>Enviar pedido por WhatsApp</span>
+                </button>
+                <button class="btn-clear-cart" id="clear-cart-btn">
+                    <i data-lucide="trash-2"></i>
+                    <span>Limpiar todo</span>
+                </button>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Botón Flotante de Carrito (Solo visible en Móviles) -->
+    <button class="floating-cart-btn" id="floating-cart-btn" aria-label="Ver mi pedido">
+        <i data-lucide="shopping-bag"></i>
+        <span class="cart-badge" id="cart-badge">0</span>
+    </button>
+
+    <!-- Modal: Detalles del Plato -->
+    <div class="modal" id="dish-modal" style="display: none;">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar detalles">
+                <i data-lucide="x"></i>
+            </button>
+            
+            <div class="modal-body">
+                <div class="modal-info-panel">
+                    <div class="modal-badge-container" id="modal-badges">
+                        <!-- Dinámico: Especial, Amazónico, etc. -->
+                    </div>
+                    <h2 class="modal-title" id="modal-title">Nombre del Plato</h2>
+                    <p class="modal-description" id="modal-description">Descripción detallada del plato.</p>
+                    
+                    <!-- Opciones Dinámicas -->
+                    <div class="modal-options-container" id="modal-options-section">
+                        <!-- Dinámico -->
+                    </div>
+
+                    <!-- Notas adicionales -->
+                    <div class="modal-notes-section">
+                        <label for="modal-notes">Indicaciones especiales (opcional):</label>
+                        <textarea id="modal-notes" rows="2" placeholder="Ej: Sin cebolla, carne bien cocida, etc."></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="modal-price-wrapper">
+                            <span class="price-label">Precio Unitario</span>
+                            <span class="modal-price" id="modal-price">$0.00</span>
+                        </div>
+                        
+                        <div class="modal-action-row">
+                            <div class="quantity-selector">
+                                <button id="modal-qty-minus" aria-label="Reducir cantidad"><i data-lucide="minus"></i></button>
+                                <span id="modal-qty-value">1</span>
+                                <button id="modal-qty-plus" aria-label="Aumentar cantidad"><i data-lucide="plus"></i></button>
+                            </div>
+                            <button class="btn-add-to-cart" id="btn-add-to-cart">
+                                <i data-lucide="plus-circle"></i>
+                                <span>Agregar al pedido</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de la Carta Digital -->
+    <script src="app-menu.js"></script>
+</body>
+</html>

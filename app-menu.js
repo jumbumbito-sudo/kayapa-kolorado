@@ -1,6 +1,6 @@
 /* ==========================================================================
-   app-menu.js - Lógica de la Carta Digital de "La Maravilla"
-   Adaptado para integrarse en la web de Kayapa Kolorado.
+   app-menu.js - Lógica de la Carta Digital de "La Maravilla" (Standalone)
+   Estética: Selva Premium / Dark Jungle & Gold
    ========================================================================== */
 
 // Número de WhatsApp del restaurante (Ecuador country code +593)
@@ -357,7 +357,7 @@ const menuItems = [
     {
         id: 'picadita-carne',
         name: 'Picadita de Carne',
-        desc: 'Picadita con trozos de res sazonados y salteados. Acompañada de papas fritas o patacones, ensalada fresca y salsas artesanales.',
+        desc: 'Picadita con trozos de res sazonados y salteados. Acompañada de papas fritas o patacones, ensalada fresca and salsas artesanales.',
         category: 'compartir',
         price: 8.50,
         badges: [],
@@ -897,7 +897,8 @@ let selectedOptions = {};
 
 // --- ELEMENTOS DEL DOM ---
 const elements = {
-    categoriesTabs: document.getElementById('mobile-categories-tabs'),
+    desktopCategoriesList: document.getElementById('desktop-categories-list'),
+    mobileCategoriesTabs: document.getElementById('mobile-categories-tabs'),
     menuGrid: document.getElementById('menu-grid'),
     activeCategoryTitle: document.getElementById('active-category-title'),
     activeCategoryDesc: document.getElementById('active-category-desc'),
@@ -969,13 +970,26 @@ function saveCartToStorage() {
     localStorage.setItem('maravilla_cart', JSON.stringify(cart));
 }
 
-// --- RENDERIZADO DE NAVEGACIÓN DE CATEGORÍAS ---
+// --- RENDERIZADO DE NAVEGACIÓN ---
 function renderCategoriesNav() {
-    elements.categoriesTabs.innerHTML = '';
+    // Limpiar navegación móvil y desktop
+    elements.desktopCategoriesList.innerHTML = '';
+    elements.mobileCategoriesTabs.innerHTML = '';
     
     Object.keys(categories).forEach(key => {
         const cat = categories[key];
         
+        // Botón Desktop
+        const desktopLi = document.createElement('li');
+        desktopLi.innerHTML = `
+            <button class="nav-item-btn ${key === currentCategory ? 'active' : ''}" data-cat="${key}">
+                <i data-lucide="${cat.icon}"></i>
+                <span>${cat.name}</span>
+            </button>
+        `;
+        elements.desktopCategoriesList.appendChild(desktopLi);
+        
+        // Botón Móvil
         const mobileBtn = document.createElement('button');
         mobileBtn.className = `mobile-nav-btn ${key === currentCategory ? 'active' : ''}`;
         mobileBtn.setAttribute('data-cat', key);
@@ -983,7 +997,7 @@ function renderCategoriesNav() {
             <i data-lucide="${cat.icon}"></i>
             <span>${cat.name}</span>
         `;
-        elements.categoriesTabs.appendChild(mobileBtn);
+        elements.mobileCategoriesTabs.appendChild(mobileBtn);
     });
 }
 
@@ -991,6 +1005,10 @@ function renderCategoriesNav() {
 function updateActiveCategory(catKey) {
     currentCategory = catKey;
     
+    // Actualizar clases activas
+    document.querySelectorAll('.nav-item-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-cat') === catKey);
+    });
     document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-cat') === catKey);
     });
@@ -1000,9 +1018,18 @@ function updateActiveCategory(catKey) {
     elements.activeCategoryDesc.textContent = cat.desc;
     
     renderMenuGrid();
+    
+    // En móviles, hacer scroll hacia la sección de platos al cambiar categoría
+    if (window.innerWidth < 992) {
+        const titleOffset = elements.activeCategoryTitle.offsetTop - 120;
+        window.scrollTo({
+            top: titleOffset,
+            behavior: 'smooth'
+        });
+    }
 }
 
-// --- RENDERIZADO DE PLATOS EN LA CUADRÍCULA ---
+// --- RENDERIZADO DE PLATOS ---
 function renderMenuGrid() {
     elements.menuGrid.innerHTML = '';
     
@@ -1225,7 +1252,7 @@ function updateModalQty(change) {
     }
 }
 
-// --- LÓGICA DEL PEDIDO / CUENTA ---
+// --- LÓGICA DEL CARRITO (MI PEDIDO) ---
 
 function addToCart() {
     if (!activeDish) return;
@@ -1272,12 +1299,13 @@ function addToCart() {
     updateCartUI();
     closeDishModal();
     
-    // Feedback visual: animar y mostrar botón flotante
-    elements.floatingCartBtn.classList.add('visible');
-    elements.floatingCartBtn.style.animation = 'none';
-    setTimeout(() => {
-        elements.floatingCartBtn.style.animation = 'pulse-menu-badge 1s infinite';
-    }, 10);
+    if (window.innerWidth < 992) {
+        elements.floatingCartBtn.classList.add('visible');
+        elements.floatingCartBtn.style.animation = 'none';
+        setTimeout(() => {
+            elements.floatingCartBtn.style.animation = 'pulse 1s infinite';
+        }, 10);
+    }
 }
 
 function updateCartUI() {
@@ -1443,7 +1471,7 @@ function sendWhatsappOrder() {
     msg += `-------------------------------------------\n`;
     msg += `*TOTAL ESTIMADO:* $${total.toFixed(2)}\n`;
     msg += `-------------------------------------------\n`;
-    msg += `📱 Enviado desde la Web Oficial de Kayapa Kolorado.`;
+    msg += `📱 Enviado desde la Carta Digital.`;
 
     const encodedText = encodeURIComponent(msg);
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
@@ -1456,22 +1484,21 @@ function setupEventListeners() {
     elements.searchInput.addEventListener('input', handleSearch);
     elements.clearSearch.addEventListener('click', clearSearchInput);
 
-    // Eventos de Categoría (Pestañas horizontales)
-    elements.categoriesTabs.addEventListener('click', (e) => {
+    // Eventos de Categoría (Desktop/Sidebar)
+    elements.desktopCategoriesList.addEventListener('click', (e) => {
+        const btn = e.target.closest('.nav-item-btn');
+        if (btn) {
+            const cat = btn.getAttribute('data-cat');
+            updateActiveCategory(cat);
+        }
+    });
+
+    // Eventos de Categoría (Móvil/Horizontal scroll tabs)
+    elements.mobileCategoriesTabs.addEventListener('click', (e) => {
         const btn = e.target.closest('.mobile-nav-btn');
         if (btn) {
             const cat = btn.getAttribute('data-cat');
             updateActiveCategory(cat);
-            
-            // Scroll suave hacia la zona de platos
-            const menuTitle = document.getElementById('active-category-title');
-            if (menuTitle) {
-                const offset = menuTitle.getBoundingClientRect().top + window.scrollY - 100;
-                window.scrollTo({
-                    top: offset,
-                    behavior: 'smooth'
-                });
-            }
         }
     });
 
@@ -1482,7 +1509,7 @@ function setupEventListeners() {
     elements.modalQtyPlus.addEventListener('click', () => updateModalQty(1));
     elements.btnAddToCart.addEventListener('click', addToCart);
 
-    // Carrito Flotante (Abrir y Cerrar Panel)
+    // Carrito Flotante (Móvil)
     elements.floatingCartBtn.addEventListener('click', () => {
         elements.sidebarCart.classList.add('open');
     });

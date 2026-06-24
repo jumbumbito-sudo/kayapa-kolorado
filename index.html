@@ -19,16 +19,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons (Requerido para el menú digital) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Custom CSS (Original de Kayapa) -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- CSS de la Carta Digital (Adaptado y aislado para evitar conflictos) -->
-    <link rel="stylesheet" href="styles-menu.css">
 </head>
 <body>
 
@@ -43,7 +37,7 @@
                     <li><a href="#inicio" class="nav-link active">Inicio</a></li>
                     <li><a href="#biografia" class="nav-link">Biografía</a></li>
                     <li><a href="#galeria" class="nav-link">Galería</a></li>
-                    <li><a href="#menu" class="nav-link">Menú Maravilla</a></li>
+                    <li><a href="menu.html" target="_blank" class="nav-link">Menú Maravilla</a></li>
                     <li><a href="#redes" class="nav-link">Redes Sociales</a></li>
                     <li><a href="#contacto" class="nav-link btn-nav">Contactar</a></li>
                 </ul>
@@ -206,55 +200,6 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: MENÚ MARAVILLA (CARTA DEL RESTAURANTE) -->
-    <section class="menu-digital-section" id="menu">
-        <!-- Luces tropicales internas de sección -->
-        <div class="menu-section-glow glow-1"></div>
-        <div class="menu-section-glow glow-2"></div>
-        
-        <div class="menu-digital-container">
-            <div class="section-title-wrapper text-center">
-                <span class="section-subtitle">La sazón amazónica y marina en Macas</span>
-                <h2 class="section-title">Menú Maravilla</h2>
-                <div class="title-line"></div>
-            </div>
-            
-            <p class="menu-intro-text text-center">
-                Te invitamos a degustar nuestra deliciosa variedad de platos con el auténtico toque amazónico y mariscos frescos de la costa. ¡Selecciona tu comida favorita y calcula tu pedido directamente!
-            </p>
-
-            <!-- Barra de Búsqueda -->
-            <div class="menu-search-wrapper">
-                <div class="menu-search-box">
-                    <i data-lucide="search" class="menu-search-icon"></i>
-                    <input type="text" id="search-input" placeholder="Buscar plato, ingrediente..." autocomplete="off">
-                    <button id="clear-search" class="menu-clear-search" aria-label="Limpiar búsqueda">
-                        <i data-lucide="x"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Navegación de Categorías (Botones Deslizables) -->
-            <div class="menu-nav-scroll">
-                <div class="menu-categories-tabs" id="mobile-categories-tabs">
-                    <!-- Dinámico -->
-                </div>
-            </div>
-
-            <!-- Contenedor Principal del Menú (Cuadrícula de Platos) -->
-            <div class="menu-display-area">
-                <div class="menu-category-info">
-                    <h3 class="menu-active-title" id="active-category-title">Cargando menú...</h3>
-                    <p class="menu-active-desc" id="active-category-desc"></p>
-                </div>
-                
-                <div class="menu-grid" id="menu-grid">
-                    <!-- Dinámico -->
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Social Media Section -->
     <section class="redes" id="redes">
         <div class="redes-container">
@@ -365,12 +310,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <p class="copyright">&copy; <span id="current-year">2026</span> Kayapa Kolorado. Todos los derechos reservados.</p>
+            <p class="copyright">&copy; <span id="current-year"></span> Kayapa Kolorado. Todos los derechos reservados.</p>
             <p class="credits">Diseñado con orgullo para la Amazonía Ecuatoriana 🇪🇨</p>
         </div>
     </footer>
 
-    <!-- Lightbox Modal (Original de Kayapa) -->
+    <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar modal">&times;</button>
         <button class="lightbox-prev" id="lightbox-prev" aria-label="Imagen anterior">&#10094;</button>
@@ -380,136 +325,7 @@
         <button class="lightbox-next" id="lightbox-next" aria-label="Siguiente imagen">&#10095;</button>
     </div>
 
-    <!-- ELEMENTOS DEDICADOS A LA CARTA DIGITAL (GLOBALES) -->
-
-    <!-- Botón Flotante de Carrito (Solo visible en Móviles/Desktop al agregar platos) -->
-    <button class="floating-cart-btn" id="floating-cart-btn" aria-label="Ver mi pedido">
-        <i data-lucide="shopping-bag"></i>
-        <span class="cart-badge" id="cart-badge">0</span>
-    </button>
-
-    <!-- Sidebar del Carrito (Mi Pedido) -->
-    <aside class="sidebar-cart" id="sidebar-cart">
-        <div class="cart-header">
-            <div class="cart-title-wrapper">
-                <i data-lucide="shopping-bag" class="gold-icon"></i>
-                <h2>Mi Pedido</h2>
-            </div>
-            <button class="close-cart-btn" id="close-cart-btn" aria-label="Cerrar pedido">
-                <i data-lucide="x"></i>
-            </button>
-        </div>
-
-        <div class="cart-body">
-            <!-- Estado Vacío -->
-            <div class="cart-empty" id="cart-empty">
-                <i data-lucide="utensils" class="empty-icon"></i>
-                <p>Tu pedido está vacío</p>
-                <span>Selecciona platos del menú para sumarlos a tu cuenta y calcular el total.</span>
-            </div>
-
-            <!-- Lista de items seleccionados -->
-            <div class="cart-items" id="cart-items" style="display: none;">
-                <!-- Dinámico -->
-            </div>
-        </div>
-
-        <div class="cart-footer" id="cart-footer" style="display: none;">
-            <div class="cart-totals">
-                <div class="total-row">
-                    <span>Subtotal</span>
-                    <span id="cart-subtotal">$0.00</span>
-                </div>
-                <div class="total-row total-highlight">
-                    <span>Total Estimado</span>
-                    <span id="cart-total">$0.00</span>
-                </div>
-            </div>
-            
-            <div class="order-info-inputs">
-                <div class="input-group">
-                    <label for="order-type">¿Cómo ordenarás?</label>
-                    <select id="order-type">
-                        <option value="mesa">Mesa del Restaurante</option>
-                        <option value="llevar">Para Llevar / Retiro</option>
-                        <option value="domicilio">Servicio a Domicilio</option>
-                    </select>
-                </div>
-                <div class="input-group" id="table-number-group">
-                    <label for="table-number">Número de Mesa</label>
-                    <input type="number" id="table-number" min="1" placeholder="Ej: 5">
-                </div>
-                <div class="input-group" id="delivery-address-group" style="display: none;">
-                    <label for="delivery-address">Dirección y Nombre</label>
-                    <input type="text" id="delivery-address" placeholder="Ej: Av. 24 de Mayo y 10 de Agosto, Juan Perez">
-                </div>
-            </div>
-
-            <button class="btn-whatsapp-order" id="send-whatsapp-btn">
-                <i data-lucide="send"></i>
-                <span>Enviar pedido por WhatsApp</span>
-            </button>
-            <button class="btn-clear-cart" id="clear-cart-btn">
-                <i data-lucide="trash-2"></i>
-                <span>Limpiar todo</span>
-            </button>
-        </div>
-    </aside>
-
-    <!-- Modal: Detalles del Plato -->
-    <div class="modal" id="dish-modal" style="display: none;">
-        <div class="modal-backdrop" id="modal-backdrop"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close" aria-label="Cerrar detalles">
-                <i data-lucide="x"></i>
-            </button>
-            
-            <div class="modal-body">
-                <div class="modal-info-panel">
-                    <div class="modal-badge-container" id="modal-badges">
-                        <!-- Dinámico: Especial, Amazónico, etc. -->
-                    </div>
-                    <h2 class="modal-title" id="modal-title">Nombre del Plato</h2>
-                    <p class="modal-description" id="modal-description">Descripción del plato.</p>
-                    
-                    <!-- Opciones Dinámicas -->
-                    <div class="modal-options-container" id="modal-options-section">
-                        <!-- Dinámico -->
-                    </div>
-
-                    <!-- Notas adicionales -->
-                    <div class="modal-notes-section">
-                        <label for="modal-notes">Indicaciones especiales (opcional):</label>
-                        <textarea id="modal-notes" rows="2" placeholder="Ej: Sin cebolla, carne bien cocida, etc."></textarea>
-                    </div>
-
-                    <div class="modal-footer">
-                        <div class="modal-price-wrapper">
-                            <span class="price-label">Precio Unitario</span>
-                            <span class="modal-price" id="modal-price">$0.00</span>
-                        </div>
-                        
-                        <div class="modal-action-row">
-                            <div class="quantity-selector">
-                                <button id="modal-qty-minus" aria-label="Reducir cantidad"><i data-lucide="minus"></i></button>
-                                <span id="modal-qty-value">1</span>
-                                <button id="modal-qty-plus" aria-label="Aumentar cantidad"><i data-lucide="plus"></i></button>
-                            </div>
-                            <button class="btn-add-to-cart" id="btn-add-to-cart">
-                                <i data-lucide="plus-circle"></i>
-                                <span>Agregar al pedido</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts Originales de Kayapa -->
+    <!-- Custom Script -->
     <script src="script.js"></script>
-    
-    <!-- Script de la Carta Digital -->
-    <script src="app-menu.js"></script>
 </body>
 </html>

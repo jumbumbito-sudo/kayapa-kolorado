@@ -1,53 +1,45 @@
-# Sitio Oficial de Kayapa Kolorado con Carta Digital Integrada 🎭🍽️
+# Sitio Oficial de Kayapa Kolorado con Carta Digital Independiente 🎭 & 🍽️
 
-¡Bienvenido! Este repositorio contiene la **Página Web Oficial de Kayapa Kolorado** (Humorista de Morona Santiago, Ecuador) junto con la **Carta Digital Interactiva** integrada de su restaurante **La Maravilla**.
-
-El diseño es modular, lo que significa que el portafolio personal del artista y el sistema interactivo de pedidos de comida conviven en armonía sin interferir el uno con el otro.
+¡Bienvenido! Este repositorio contiene la **Página Web Oficial de Kayapa Kolorado** (Humorista de Morona Santiago, Ecuador) junto con la **Carta Digital Interactiva** de su restaurante **La Maravilla** configurada para abrirse en una pestaña separada.
 
 ---
 
-## 📂 Estructura de Archivos del Proyecto
+## 📂 Archivos del Proyecto a Subir a GitHub
 
-Para que el sitio funcione correctamente, debes asegurarte de subir a tu repositorio de GitHub los siguientes archivos:
+Asegúrate de tener y subir todos los siguientes archivos a la raíz de tu repositorio:
 
-1. **`index.html`**: El archivo principal que une el portafolio original de Kayapa Kolorado y la sección del **Menú Maravilla** integrada.
-2. **`style.css`**: Los estilos visuales originales de la página personal de Kayapa (mantiene su tipografía y colores).
-3. **`styles-menu.css`**: Los estilos visuales aislados (*scoped*) de la carta del restaurante (verde selva y oro, vidrio esmerilado, modal de plato y carrito lateral).
-4. **`script.js`**: El código interactivo original de la página de Kayapa (para la galería de fotos, modal lightbox y menú de navegación móvil).
-5. **`app-menu.js`**: La lógica interactiva de la carta digital (buscador, pestañas, cantidades, calculadora del pedido y enlace directo para pedir por WhatsApp).
-6. **Imágenes del sitio**: Asegúrate de subir tus fotos y portadas (`portada_kayapa_fiesta.png`, `120326393_3412416592178677_6561728807973833797_n.jpg`, etc.) en la misma carpeta para que se muestren en la galería y el hero.
-
----
-
-## 🚀 Funcionalidades Integradas de la Carta
-
-* **Enlace Rápido en Navbar**: Un nuevo link en el menú superior que lleva suavemente al usuario directo a la sección `#menu` (Menú Maravilla).
-* **Buscador & Filtros**: Los clientes pueden filtrar platos por pestañas y buscar ingredientes al instante.
-* **Calculadora con Carrito Flotante**: Cuando el cliente agrega platos desde el modal de detalles, un botón flotante con una bolsa de compras aparece en la esquina de la pantalla. Al hacer clic, se abre el panel lateral (*drawer*) de la cuenta estimativa sin sacarlo de la navegación principal de la página.
-* **Envío Directo a WhatsApp**: El pedido se envía estructurado al WhatsApp del restaurante **(+593 989241938)** con el número de mesa, indicando si es para retirar o a domicilio.
+1. **`index.html`**: La página oficial de Kayapa Kolorado. Su Navbar contiene un enlace directo que abre la carta digital en una nueva pestaña:
+   ```html
+   <li><a href="menu.html" target="_blank" class="nav-link">Menú Maravilla</a></li>
+   ```
+2. **`menu.html`**: La carta digital de La Maravilla. Tiene un diseño completo independiente con selector de platos, calculadora y sidebar de información.
+3. **`style.css`**: Los estilos visuales de la página de Kayapa (debes asegurarte de tener este archivo en tu carpeta).
+4. **`styles-menu.css`**: Los estilos exclusivos de la carta digital (verde selva y oro, vidrio esmerilado, modal de plato y el carrito).
+5. **`script.js`**: El código interactivo original del portafolio de Kayapa (galería, modal lightbox, etc. - debes asegurarte de tener este archivo).
+6. **`app-menu.js`**: El script de control de la carta digital (buscador, pestañas, cantidades, calculadora del pedido y enlace para pedir por WhatsApp).
+7. **Imágenes**: Sube también tus portadas y fotos (`portada_kayapa_fiesta.png`, fotos de la galería, etc.).
 
 ---
 
-## 🛠️ Cómo Publicar tu Sitio Gratis en GitHub Pages
+## 🚀 Cómo Publicar tu Sitio Gratis en GitHub Pages
 
-1. **Inicia Sesión en GitHub**: Ve a [github.com](https://github.com/) e ingresa a tu cuenta.
-2. **Crea un Repositorio**: Haz clic en **New** (Nuevo), ponle un nombre (ej. `sitio-oficial` o `kayapa-maravilla`), selecciona **Public** y pulsa **Create repository**.
-3. **Sube tus archivos**:
-   - Pulsa en **"uploading an existing file"** (subir un archivo existente).
-   - Arrastra **todos** los archivos de esta carpeta (incluyendo tus archivos `style.css` y `script.js` originales y tus imágenes de galería).
-   - Haz clic en **Commit changes** (Confirmar cambios).
-4. **Activa las GitHub Pages**:
-   - Ve a la pestaña **Settings** (Configuración) en la parte superior derecha de tu repositorio.
-   - En el menú izquierdo, haz clic en **Pages**.
-   - Bajo **Build and deployment** -> **Branch**, cambia de *None* a **main** (o *master*) y pulsa **Save** (Guardar).
-5. ¡Listo! En 1 minuto tu web estará publicada en el enlace que te indica allí (ej. `https://tu-usuario.github.io/nombre-del-repositorio/`).
+1. **Crea un repositorio en GitHub** llamado como desees (ej: `web-kayapa-maravilla`).
+2. **Sube todos los archivos** mencionados arriba (arrastrando y soltando la carpeta completa o el contenido).
+3. **Activa GitHub Pages**:
+   - Ve a la pestaña **Settings** (Configuración) de tu repositorio.
+   - Entra en la sección **Pages** del menú izquierdo.
+   - En **Branch**, selecciona **main** (o *master*) y haz clic en **Save** (Guardar).
+4. Espera 1 minuto y tu web estará lista en: `https://tu-usuario.github.io/tu-repositorio/index.html`.
+5. Si un cliente escanea el código QR que crees de tu web o de `menu.html`, entrará directo a la carta digital interactiva en pantalla completa.
 
 ---
 
-## ⚙️ Modificar el Teléfono del Pedido
+## ⚙️ Configuración de WhatsApp en la Carta
 
-Si necesitas cambiar el número donde se reciben los pedidos del restaurante:
-1. Abre `app-menu.js` en tu editor de texto.
-2. Busca la línea 7: `const WHATSAPP_NUMBER = "593989241938";`
-3. Reemplaza `"593989241938"` por tu nuevo número (debe incluir el prefijo del país, ej: `593` para Ecuador, seguido del número celular sin el primer cero).
-4. Guarda y vuelve a subir el archivo a GitHub.
+Para modificar el teléfono donde recibes los pedidos de comida:
+1. Abre `app-menu.js` y ve a la línea 7:
+   ```javascript
+   const WHATSAPP_NUMBER = "593989241938";
+   ```
+2. Reemplaza el número manteniendo el código internacional de Ecuador `593` y quitando el primer cero del celular.
+3. Guarda el archivo y actualízalo en GitHub.
