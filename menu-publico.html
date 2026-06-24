@@ -23,7 +23,7 @@
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
 
-    <!-- Contenedor Principal (3 Columnas en Desktop) -->
+    <!-- Contenedor Principal (2 Columnas en Desktop ya que no tiene Calculadora) -->
     <div class="app-container">
         
         <!-- Sidebar Izquierdo: Información y Redes (Visible en Desktop) -->
@@ -117,81 +117,7 @@
             </section>
         </main>
 
-        <!-- Sidebar Derecho: Calculadora de Cuenta / Mi Pedido -->
-        <aside class="sidebar-cart" id="sidebar-cart">
-            <div class="cart-header">
-                <div class="cart-title-wrapper">
-                    <i data-lucide="shopping-bag" class="gold-icon"></i>
-                    <h2>Mi Pedido</h2>
-                </div>
-                <button class="close-cart-btn" id="close-cart-btn" aria-label="Cerrar pedido">
-                    <i data-lucide="x"></i>
-                </button>
-            </div>
-
-            <div class="cart-body">
-                <!-- Estado Vacío -->
-                <div class="cart-empty" id="cart-empty">
-                    <i data-lucide="utensils" class="empty-icon"></i>
-                    <p>Tu pedido está vacío</p>
-                    <span>Selecciona platos del menú para sumarlos a tu cuenta y calcular el total.</span>
-                </div>
-
-                <!-- Lista de items seleccionados -->
-                <div class="cart-items" id="cart-items" style="display: none;">
-                    <!-- Dinámico -->
-                </div>
-            </div>
-
-            <div class="cart-footer" id="cart-footer" style="display: none;">
-                <div class="cart-totals">
-                    <div class="total-row">
-                        <span>Subtotal</span>
-                        <span id="cart-subtotal">$0.00</span>
-                    </div>
-                    <div class="total-row total-highlight">
-                        <span>Total Estimado</span>
-                        <span id="cart-total">$0.00</span>
-                    </div>
-                </div>
-                
-                <div class="order-info-inputs">
-                    <div class="input-group">
-                        <label for="order-type">¿Cómo ordenarás?</label>
-                        <select id="order-type">
-                            <option value="mesa">Mesa del Restaurante</option>
-                            <option value="llevar">Para Llevar / Retiro</option>
-                            <option value="domicilio">Servicio a Domicilio</option>
-                        </select>
-                    </div>
-                    <div class="input-group" id="table-number-group">
-                        <label for="table-number">Número de Mesa</label>
-                        <input type="number" id="table-number" min="1" placeholder="Ej: 5">
-                    </div>
-                    <div class="input-group" id="delivery-address-group" style="display: none;">
-                        <label for="delivery-address">Dirección y Nombre</label>
-                        <input type="text" id="delivery-address" placeholder="Ej: Av. 24 de Mayo y 10 de Agosto, Juan Perez">
-                    </div>
-                </div>
-
-                <button class="btn-whatsapp-order" id="send-whatsapp-btn">
-                    <i data-lucide="send"></i>
-                    <span>Enviar pedido por WhatsApp</span>
-                </button>
-                <button class="btn-clear-cart" id="clear-cart-btn">
-                    <i data-lucide="trash-2"></i>
-                    <span>Limpiar todo</span>
-                </button>
-            </div>
-        </aside>
-
     </div>
-
-    <!-- Botón Flotante de Carrito (Solo visible en Móviles) -->
-    <button class="floating-cart-btn" id="floating-cart-btn" aria-label="Ver mi pedido">
-        <i data-lucide="shopping-bag"></i>
-        <span class="cart-badge" id="cart-badge">0</span>
-    </button>
 
     <!-- Modal: Detalles del Plato -->
     <div class="modal" id="dish-modal" style="display: none;">
@@ -214,28 +140,10 @@
                         <!-- Dinámico -->
                     </div>
 
-                    <!-- Notas adicionales -->
-                    <div class="modal-notes-section">
-                        <label for="modal-notes">Indicaciones especiales (opcional):</label>
-                        <textarea id="modal-notes" rows="2" placeholder="Ej: Sin cebolla, carne bien cocida, etc."></textarea>
-                    </div>
-
-                    <div class="modal-footer">
-                        <div class="modal-price-wrapper">
-                            <span class="price-label">Precio Unitario</span>
-                            <span class="modal-price" id="modal-price">$0.00</span>
-                        </div>
-                        
-                        <div class="modal-action-row">
-                            <div class="quantity-selector">
-                                <button id="modal-qty-minus" aria-label="Reducir cantidad"><i data-lucide="minus"></i></button>
-                                <span id="modal-qty-value">1</span>
-                                <button id="modal-qty-plus" aria-label="Aumentar cantidad"><i data-lucide="plus"></i></button>
-                            </div>
-                            <button class="btn-add-to-cart" id="btn-add-to-cart">
-                                <i data-lucide="plus-circle"></i>
-                                <span>Agregar al pedido</span>
-                            </button>
+                    <div class="modal-footer" style="justify-content: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 1.5rem;">
+                        <div class="modal-price-wrapper" style="text-align: center; width: 100%;">
+                            <span class="price-label" style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--menu-text-secondary); margin-bottom: 0.3rem;">Precio</span>
+                            <span class="modal-price" id="modal-price" style="font-size: 2rem; font-weight: 700; color: var(--menu-gold);">$0.00</span>
                         </div>
                     </div>
                 </div>
@@ -244,6 +152,6 @@
     </div>
 
     <!-- Scripts de la Carta Digital -->
-    <script src="app-menu.js"></script>
+    <script src="app-menu-publico.js"></script>
 </body>
 </html>
