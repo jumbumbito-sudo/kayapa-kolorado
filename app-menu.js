@@ -4,7 +4,7 @@
    ========================================================================== */
 
 // Número de WhatsApp del restaurante (Ecuador country code +593)
-const WHATSAPP_NUMBER = "593989241938";
+const WHATSAPP_NUMBER = "593997846447";
 
 // Categorías del Menú
 const categories = {
