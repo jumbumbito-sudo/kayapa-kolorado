@@ -39,7 +39,7 @@ Asegúrate de tener y subir todos los siguientes archivos a la raíz de tu repos
 Para modificar el teléfono donde recibes los pedidos de comida:
 1. Abre `app-menu.js` y ve a la línea 7:
    ```javascript
-   const WHATSAPP_NUMBER = "593989241938";
+   const WHATSAPP_NUMBER = "593997846447";
    ```
 2. Reemplaza el número manteniendo el código internacional de Ecuador `593` y quitando el primer cero del celular.
 3. Guarda el archivo y actualízalo en GitHub.
