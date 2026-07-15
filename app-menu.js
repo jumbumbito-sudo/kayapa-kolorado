@@ -18,6 +18,11 @@ const categories = {
         desc: 'Platos tradicionales de res, cerdo y pollo al grill y a la plancha.',
         icon: 'beef'
     },
+    'pastas': {
+        name: 'Pastas Maravilla',
+        desc: 'Espaguetis y linguinis al dente preparados con deliciosas salsas artesanales e ingredientes premium.',
+        icon: 'soup'
+    },
     'mariscos': {
         name: 'Clásicos del Mar',
         desc: 'Los mejores mariscos frescos preparados con el toque de la casa.',
@@ -178,6 +183,66 @@ const menuItems = [
         category: 'carnes-pollos',
         price: 15.00,
         badges: []
+    },
+
+    // --- PASTAS MARAVILLA ---
+    {
+        id: 'pasta-carbonara',
+        name: 'Pasta Carbonara',
+        desc: 'Espagueti salteado con tocino crocante, mezclado con queso parmesano y una suave salsa blanca estilo Carbonara, creando un plato cremoso, aromático y lleno de sabor.',
+        category: 'pastas',
+        price: 7.00,
+        badges: []
+    },
+    {
+        id: 'chicken-pasta-maravilla',
+        name: 'Chicken Pasta Maravilla',
+        desc: 'Pechuga de pollo en trocitos salteados en salsa pomodoro artesanal, mezclados con pasta Linguini, parmesano, orégano fresco y pan tostado crujiente.',
+        category: 'pastas',
+        price: 7.00,
+        badges: []
+    },
+    {
+        id: 'pasta-camaron',
+        name: 'Pasta de Camarón',
+        desc: 'Espagueti al dente con camarones salteados, mezclados en una salsa blanca cremosa, con queso parmesano. Se sirve con pan tostado crujiente.',
+        category: 'pastas',
+        price: 8.50,
+        badges: []
+    },
+    {
+        id: 'chicken-parmesan-pasta',
+        name: 'Chicken Parmesan Pasta',
+        desc: 'Pasta al dente mezclada con una suave salsa pomodoro artesanal, una lluvia de queso parmesano y coronada con un filete de pechuga de pollo empanizado, dorado y cubierto con queso mozzarella fundido. Se sirve con pan tostado crujiente.',
+        category: 'pastas',
+        price: 9.00,
+        badges: []
+    },
+    {
+        id: 'pasta-alfredo-casa',
+        name: 'Pasta Alfredo de la Casa',
+        desc: 'Espagueti con pollo, camarón y champiñones en cremosa salsa Alfredo elaborada con mantequilla, queso parmesano y crema de leche. Se sirve con pan tostado crujiente.',
+        category: 'pastas',
+        price: 10.00,
+        badges: []
+    },
+    {
+        id: 'pasta-marinera',
+        name: 'Pasta Marinera',
+        desc: 'Espagueti al dente combinado con un mix de mariscos frescos, servido con salsa roja o salsa blanca, según su preferencia. Lleva queso parmesano, un toque de orégano y se sirve con pan tostado crujiente.',
+        category: 'pastas',
+        price: 10.00,
+        badges: [],
+        options: [
+            {
+                name: 'Selecciona tu Salsa',
+                type: 'addon',
+                choices: [
+                    { name: 'Salsa Roja (Pomodoro)', price: 0 },
+                    { name: 'Salsa Blanca (Crema)', price: 0 }
+                ]
+            }
+        ]
     },
 
     // --- CLÁSICOS DEL MAR ---
